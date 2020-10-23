@@ -52,7 +52,7 @@ def main():
     # 手動で姿勢を指定するには以下のように指定
 
     gripper.set_joint_value_target([0.9, 0.9])
-    gripper.go() #gripper.go()
+    gripper.go() #gripper.go()＜－このコードでなんか動かす
 
     
     target_pose = geometry_msgs.msg.Pose()
@@ -60,14 +60,14 @@ def main():
     target_pose.position.y = -0.2 #yの位置決める　左右の移動
     target_pose.position.z = 0.3 #zの位置決める　高さ
     q = quaternion_from_euler(-3.14, 0.0, -3.14/2.0)  # 上方から掴み　原理はオイラー角を調べればわかりそう（わかっていない）
-    target_pose.orientation.x = q[0]
-    target_pose.orientation.y = q[1]
-    target_pose.orientation.z = q[2]
-    target_pose.orientation.w = q[3]
+    target_pose.orientation.x = q[0]　#おまじない的な
+    target_pose.orientation.y = q[1]  #｜
+    target_pose.orientation.z = q[2]  #｜　
+    target_pose.orientation.w = q[3]  #｜
     arm.set_pose_target(target_pose)  # 目標ポーズ設定
     arm.go()
     
-    gripper.set_joint_value_target([0.7, 0.7])
+    gripper.set_joint_value_target([0.7, 0.7]) #アームの開閉
     gripper.go() 
 
 
