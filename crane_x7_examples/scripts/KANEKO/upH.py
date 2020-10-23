@@ -9,10 +9,10 @@ from tf.transformations import quaternion_from_euler
 
 
 def main():
-    Pos = [[0.2,-0.2,0.3],[0.2, -0.2, 0.1],[0.2, -0.2, 0.3],[0.2, -0.2, 0.3],[0.2, 0.0, 0.3]]
-    Ang = [[-3.14, 0.0, -1.57],[-1.57, 0.0, -1.57]]
-    gri = [[0.7,0.7],[0.15, 0.15],[1,1],[1,1],[1,1]]
-    Num = [0, 0, 0, 1, 1]
+    Pos = [[0.2,-0.2,0.3],[0.2, -0.2, 0.1],[0.2, -0.2, 0.3],[0.2, -0.2, 0.3],[0.2, 0.0, 0.3]] #マニュピレータの位置を決める2次元配列配列みたいなの[2次元のリスト型]
+    Ang = [[-3.14, 0.0, -1.57],[-1.57, 0.0, -1.57]] #アームの角度の調整のリスト
+    gri = [[0.7,0.7],[0.15, 0.15],[1,1],[1,1],[1,1]] #アームのパワーを決めるリスト[１，１]はif文で無視されるようになっている
+    Num = [0, 0, 0, 1, 1] #for文でループさせるときに使っている＆アームの角度を調整する
     i = 0;
     rospy.init_node("pose_groupstate_example")
     robot = moveit_commander.RobotCommander()
@@ -59,7 +59,7 @@ def main():
     gripper.set_joint_value_target([0.9, 0.9])
     gripper.go()
 
-    for Nums in Num:
+    for Nums in Num: 
         target_pose = geometry_msgs.msg.Pose()
         target_pose.position.x = Pos[i][0]
         target_pose.position.y = Pos[i][1]
