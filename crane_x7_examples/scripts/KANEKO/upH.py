@@ -59,7 +59,7 @@ def main():
     gripper.set_joint_value_target([0.9, 0.9])
     gripper.go()
 
-    for Nums in Num: 
+    for Nums in Num:  #カウンタ変数で for文を回せないっぽいので配列Numを使っている　（Numのリストの数のぶんループさせる）カウンタ変数をつかえたら教えてほしい！
         target_pose = geometry_msgs.msg.Pose()
         target_pose.position.x = Pos[i][0]
         target_pose.position.y = Pos[i][1]
@@ -75,7 +75,7 @@ def main():
         print(Pos[i])
         print("角度")
         print(Ang[Nums])
-        if gri[i][0] < 1:
+        if gri[i][0] < 1:　#毎回グリップの力を宣言しているのは動きのロスになるのでgirの配列の中が１の時の場合は宣言しないようにしている（良いやり方があったら教えてほしい）
             print("グリップ力")
             print(gri[i])
             gripper.set_joint_value_target([gri[i][0], gri[i][1]])
