@@ -41,9 +41,9 @@ def main():
     gripper.go()
 
     # SRDFに定義されている"home"の姿勢にする
-    print("home")
-    arm.set_named_target("home")
-    arm.go()
+#    print("home")
+#    arm.set_named_target("home")
+#    arm.go()
 
     # SRDFに定義されている"vertical"の姿勢にする
     print("vertical")
