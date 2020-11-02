@@ -47,6 +47,10 @@
        </material>
       </visual>
      </link>
+     <joint name="bunchin" type="fixed">
+	     <parent>table::lilnk</parent>
+	     <child>papre::link</child>
+     </joint>
     </model> 
 
     <model name="ground_plane">
