@@ -12,7 +12,6 @@
 
   <!-- Link to provide the location reference for the arm -->
   <link name="base_link"/>
-
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="world"/>
 
