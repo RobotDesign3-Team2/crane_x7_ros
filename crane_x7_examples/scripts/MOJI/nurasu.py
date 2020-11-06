@@ -37,8 +37,8 @@ def main():
     #print(arm_initial_pose)
 
     # 何かを掴んでいた時のためにハンドを開く
-    #gripper.set_joint_value_target([0.9, 0.9])
-    #gripper.go()
+    gripper.set_joint_value_target([0.9, 0.9])
+    gripper.go()
 
     # SRDFに定義されている"home"の姿勢にする
     print("home")
@@ -77,11 +77,11 @@ def main():
         print(Pos[i])
         print("角度")
         print(Ang[Nums])
-        if gri[i][0] < 1:
-            print("グリップ力")
-            print(gri[i])
-            gripper.set_joint_value_target([gri[i][0], gri[i][1]])
-            gripper.go()
+        #if gri[i][0] < 1:
+        #    print("グリップ力")
+        #    print(gri[i])
+        #    gripper.set_joint_value_target(0.9,0.9)
+        #    gripper.go()
 
         i = i + 1    
 

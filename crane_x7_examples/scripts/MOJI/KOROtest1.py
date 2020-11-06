@@ -7,16 +7,17 @@ import geometry_msgs.msg
 import rosnode
 from tf.transformations import quaternion_from_euler
 
-
 def main():
-    Pos = [[0.39, 0.025, 0.15],[0.39,0.025,0.1],[0.39, -0.025, 0.1],[0.34, -0.025, 0.1],[0.34, -0.025, 0.15],[0.34, 0.025, 0.15],[0.34, 0.025, 0.1],[0.34, -0.025, 0.1]]
-    Ang = [[-3.14, 0.0, -1.57],[-1.57, 0.0, -1.57]]
-    gri = [[0.1,0.1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1]]
-    Num = [1, 1, 1, 1, 1, 1, 1, 1]
+    Pos = [[0.39, 0.025,0.15],[0.39,0.025,0.1],[0.39, -0.025, 0.1],[0.34, -0.025, 0.1],[0.34, -0.025, 0.15],[0.34, 0.025, 0.15],[0.34, 0.025, 0.1],[0.34, -0.025, 0.1]] #コを書くための座標
+    Ang = [[-3.14, 0.0, -1.57],[-1.57, 0.0, -1.57]]#いらない
+    gri = [[0.1,0.1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1],[1,1]]#要らない
+    Num = [1, 1, 1, 1, 1, 1, 1, 1]#コを書くための数
     i = 0;
     j = 0;
     PosR = [[0.32,0.025,0.15],[0.32,0.025,0.1],[0.27,0.025,0.1],[0.27,0.025,0.15],[0.32,0.025,0.15],[0.32,0.025,0.1],[0.32,-0.025,0.1],[0.27,-0.025,0.1],[0.27,-0.025,0.15],[0.27,0.025,0.15],[0.27,0.025,0.1],[0.27,-0.025,0.1]]
     NumR = [1,1,1,1,1,1,1,1,1,1,1,1]
+    PosminiR = [[0.3,0.02,0.15],[0.3,0.02,0.1],[0.29,0.02,0.1],[0.29,0.02,0.15],[0.3,0.02,0.15],[0.3,0.02,0.1],[0.3,0.01,0.1],[0.29,0.01,0.1],[0.29,0.01,0.15],[0.29,0.02,0.15],[0.29,0.02,0.1],[0.29,0.01,0.1]]
+    NumminiR = [1,1,1,1,1,1,1,1,1,1,1,1]
     rospy.init_node("pose_groupstate_example")
     robot = moveit_commander.RobotCommander()
     arm = moveit_commander.MoveGroupCommander("arm")
@@ -67,7 +68,7 @@ def main():
     for Nums in Num:
         rospy.sleep(1.0)
         target_pose = geometry_msgs.msg.Pose()
-        target_pose.position.x = Pos[i][0]
+        target_pose.position.x = Pos[i][0]#前のカッコのiで何番目の()か、後ろのカッコの0～2で何番目かを設定している
         target_pose.position.y = Pos[i][1]
         target_pose.position.z = Pos[i][2]
         q = quaternion_from_euler(Ang[Nums][0], Ang[Nums][1], Ang[Nums][2])  # 上方から掴み>に行く場合    
@@ -116,11 +117,32 @@ def main():
 
 
     print("ロを書いた")
-    print("あああああああああああ")
+    print("コロ完成！")
 
+    print("smallロを書く")
+    i = 0
+    for Nums in NumR:
+        rospy.sleep(1.0)
+        target_pose = geometry_msgs.msg.Pose()
+        target_pose.position.x = PosminiR[i][0]
+        target_pose.position.y = PosminiR[i][1]
+        target_pose.position.z = PosminiR[i][2]
+        q = quaternion_from_euler(Ang[1][0], Ang[1][1], Ang[1][2])  # 上方から掴み>に行く場
+        target_pose.orientation.x = q[0]
+        target_pose.orientation.y = q[1]
+        target_pose.orientation.z = q[2]
+        target_pose.orientation.w = q[3]
+        arm.set_pose_target(target_pose)  # 目標ポーズ設定
+        arm.go()
+        print("位置")
+        print(PosminiR[i])
+        print("角度")
+        print(Ang[1])
+        i = i + 1
     
+    print("smallロを書いた")
     # 移動後の手先ポーズを表
-
+#座標は+-で決定する、0.2～0.5が安定
 
 if __name__ == '__main__':
     try:
