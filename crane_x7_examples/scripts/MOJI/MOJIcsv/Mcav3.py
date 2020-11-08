@@ -25,12 +25,12 @@ def main():
     rospy.sleep(1.0)
 
     def move_arm(pos_x, pos_y, pos_z, move):#アームの動き関数 move_arm(0.5, 0.5, 0.1 ,0.1)などのように使用
-	    move_max_velocity(move)#速度調整関数()の中に速さを入力0.1～0.9が好ましい
+	    move_max_velocity(move)#速度調整関数
 	    target_pose = geometry_msgs.msg.Pose()
 	    target_pose.position.x = pos_x#x代入
 	    target_pose.position.y = pos_y#y代入
 	    target_pose.position.z = pos_z#z代入
-	    q = quaternion_from_euler(3.14/2.0, 0.0, 3.14/2.0)  # 上方から掴みに行く場合
+	    q = quaternion_from_euler(3.14/2.0, 0.0, 3.14/2.0) 
 	    target_pose.orientation.x = q[0]
 	    target_pose.orientation.y = q[1]
 	    target_pose.orientation.z = q[2]
@@ -58,7 +58,7 @@ def main():
     arm.go()
 	
 #筆をつかむ位置に移動
-    move_arm(0.38, 0.024, 0.2, 0.2)#(x,y,z,速さ)
+    move_arm(0.2, -0.2, 0.2, 0.2)#(x,y,z,速さ)
     print("筆を掴ませる待ち時間")
     rospy.sleep(5.0) #ここで筆を掴む
     
