@@ -71,8 +71,8 @@ def main():
 	for row in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):#ファイルを数値型に変更しrowに代入
 	    rospy.sleep(1.0)#ロボットを1秒停止
 	    move_arm(row[0],row[1],row[2], 0.05) #move_arm(X,Y,Z, アームのスピード)
-
-    rospy.sleep(8.0)#水滴を止めるため８秒待機
+            rospy.sleep(8.0)#水滴を止めるため８秒待機
+            move_arm(0.386,0.024,0.2, 0.1)#コを書く最初の位置に移動
 
 #文字を書く(コロナ)
     for FL in fl:#ファイルの数ループ
