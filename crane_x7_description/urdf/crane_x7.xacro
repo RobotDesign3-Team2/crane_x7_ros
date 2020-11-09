@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 
+<!-- これがコメントアウトのやり方です   -->
+
+<!--これを用いて、筆の表示を消したい場合は,<xacro:include filename="$(find crane_x7_description)/urdf/pen.urdf"/>を上記の方法で
+	コメントアウトしていただくと消えます-->
+
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:include filename="$(find crane_x7_description)/urdf/crane_x7_mounting_plate.xacro"/>
   <xacro:include filename="$(find crane_x7_description)/urdf/crane_x7_arm.xacro"/>
