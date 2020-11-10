@@ -58,23 +58,25 @@ def main():
     arm.go()
 	
 #筆をつかむ位置に移動
+    print("筆掴む位置")
     move_arm(0.38*1.2-0.08, 0.024*1.2, 0.2, 0.2)#(x,y,z,速さ)
     print("筆を掴ませる待ち時間")
-    rospy.sleep(5.0) #ここで筆を掴む
+    rospy.sleep(1.0) #ここで筆を掴む
     
     gripper.set_joint_value_target([0.1, 0.1])#アームを閉じる
     gripper.go()
 
 #筆に水をつける
-    import csv#csvファイルを開くと宣言
-    with open(fl2) as f: # ファイルを開く
-	for row in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):#ファイルを数値型に変更しrowに代入
-	    rospy.sleep(1.0)#ロボットを1秒停止
-	    move_arm(row[0],row[1],row[2], 0.05) #move_arm(X,Y,Z, アームのスピード)
-
-    rospy.sleep(8.0)#水滴を止めるため８秒待機
-    move_arm(0.386*1.2,0.024*1.2,0.2, 0.1)#コを書く最初の位置に移動
-
+    print("水をつける初期位置")
+    move_arm(0.2,-0.2,0.2, 0.05) #move_arm(X,Y,Z, アームのスピード)
+    rospy.sleep(2.0) 
+    print("文字を書く範囲")
+    move_arm(0.386*1.2-0.08,0.028*1.2,0.2, 0.1)#コを書く最初の位置に移動
+    rospy.sleep(2.0)
+    move_arm(0.195*1.2-0.08,-0.028*1.2,0.2, 0.1)
+	
+	
+"""
 #文字を書く(コロナ)
     for FL in fl:#ファイルの数ループ
 	import csv #csvファイルを開くと宣言
@@ -106,7 +108,7 @@ def main():
     move_max_velocity(0.2)#アームを初期位置に戻す
     arm.set_named_target("vertical")
     arm.go()
-
+"""
 if __name__ == '__main__':
     try:
         if not rospy.is_shutdown():

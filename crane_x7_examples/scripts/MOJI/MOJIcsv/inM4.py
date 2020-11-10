@@ -73,21 +73,21 @@ def main():
 	    move_arm(row[0],row[1],row[2], 0.05) #move_arm(X,Y,Z, アームのスピード)
 
     rospy.sleep(8.0)#水滴を止めるため８秒待機
-    move_arm(0.386,0.024,0.2, 0.1)#コを書く最初の位置に移動
+    move_arm(0.386*1.2,0.024*1.2,0.2, 0.1)#コを書く最初の位置に移動
 
 #文字を書く(コロナ)
     for FL in fl:#ファイルの数ループ
 	import csv #csvファイルを開くと宣言
 	with open(FL) as f: #ファイルを開く
 	    for row in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):#ファイルを数値型に変更しrowに代入
-		move_arm(row[0],row[1],row[2], 0.02) #move_arm(X,Y,Z, アームのスピード)
+		move_arm(row[0]*1.2,row[1]*1.2-0.08,row[2], 0.02) #move_arm(X,Y,Z, アームのスピード)
 		rx = row[0]#最終座標のメモ
 		ry = row[1]#  |
 		rz = row[2]#  |
 	rospy.sleep(1.0) #一秒待機
 
-    move_arm(rx,ry,rz+0.05, 0.05)#垂直持ち上げ
-    move_arm(rx,ry,rz+0.1, 0.1)#     |
+    move_arm(rx*1.2,ry*1.2,rz+0.05, 0.05)#垂直持ち上げ
+    move_arm(rx*1.2,ry*1.2,rz+0.1, 0.1)#     |
 
 #文字を書く(ロス)
     for FL in fl1:#ファイルの数ループ
