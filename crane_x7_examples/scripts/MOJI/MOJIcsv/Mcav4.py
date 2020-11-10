@@ -80,7 +80,7 @@ def main():
 	import csv #csvファイルを開くと宣言
 	with open(FL) as f: #ファイルを開く
 	    for row in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):#ファイルを数値型に変更しrowに代入
-		move_arm(row[0]*1.2-0.08,row[1]*1.2,row[2], 0.02) #move_arm(X,Y,Z, アームのスピード)
+		move_arm(row[0]*1.2-0.08,row[1]*1.2,row[2], 0.05) #move_arm(X,Y,Z, アームのスピード)
 		rx = row[0]#最終座標のメモ
 		ry = row[1]#  |
 		rz = row[2]#  |
