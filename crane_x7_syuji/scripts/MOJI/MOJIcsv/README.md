@@ -4,4 +4,4 @@
  * プログラム起動
 
 2. ディレクトリ移動 /catkin_ws/src/crane_x7_ros/crane_x7_syuji/scripts/MOJI/MOJIcsvの中に入る
-3. rosrun crane_x7_syuji Mcav2.py
+3. rosrun crane_x7_syuji Mcav４.py
