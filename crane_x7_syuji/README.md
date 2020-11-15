@@ -26,6 +26,7 @@ roslaunch crane_x7_bringup demo.launch fake_execution:=true
 ### 実機を使う場合
 
 ・実機起動
+
 実機で動作を確認する場合、
 制御信号ケーブルを接続した状態で次のコマンドを実行します。
 
@@ -33,6 +34,7 @@ roslaunch crane_x7_bringup demo.launch fake_execution:=true
 roslaunch crane_x7_bringup demo.launch fake_execution:=false
 ```
 ・プログラム起動
+
 まず次のディレクトリに移動します。
 
 ```sh
