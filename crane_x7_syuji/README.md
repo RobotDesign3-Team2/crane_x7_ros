@@ -25,18 +25,23 @@ roslaunch crane_x7_bringup demo.launch fake_execution:=true
 
 ### 実機を使う場合
 
+・実機起動
 実機で動作を確認する場合、
 制御信号ケーブルを接続した状態で次のコマンドを実行します。
 
 ```sh
 roslaunch crane_x7_bringup demo.launch fake_execution:=false
 ```
-
-ケーブルの接続ポート名はデフォルトで`/dev/ttyUSB0`です。
-別のポート名(例: /dev/ttyUSB1)を使う場合は次のコマンドを実行します。
+・プログラム起動
+まず次のディレクトリに移動します。
 
 ```sh
-roslaunch crane_x7_bringup demo.launch fake_execution:=false port:=/dev/ttyUSB1
+/catkin_ws/src/crane_x7_ros/crane_x7_syuji/scripts/MOJI/MOJIcsv
+```
+
+次のコマンドを実行します。
+```sh
+rosrun crane_x7_syuji Mcav4.py
 ```
 
 ### gazeboを使う場合
