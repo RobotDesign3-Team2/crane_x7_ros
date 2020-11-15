@@ -48,8 +48,26 @@ rosrun crane_x7_syuji Mcav4.py
 
 ### gazeboを使う場合
 
+・gazebo起動
+
 次のコマンドで起動します。実機との接続やcrane_x7_bringupの実行は必要ありません。
 
 ```sh
 roslaunch crane_x7_gazebo crane_x7_with_table.launch
 ```
+
+・プログラム起動
+
+次のコマンドでプログラムのディレクトリに移動します。
+
+```sh
+/catkin_ws/src/crane_x7_ros/crane_x7_syuji/scripts/MOJI/MOJIcsv
+```
+
+次のコマンドでプログラムを実行します。
+
+```sh
+rosrun crane_x7_syuji Mcav4.py
+```
+
+
