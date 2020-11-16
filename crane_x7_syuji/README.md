@@ -1,4 +1,3 @@
-[English](README.en.md) | [日本語](README.md)
 
 # crane_x7_syuji
 
