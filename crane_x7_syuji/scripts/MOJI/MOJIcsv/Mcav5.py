@@ -5,6 +5,7 @@ import rospy
 import moveit_commander
 import geometry_msgs.msg
 import rosnode
+import csv
 from tf.transformations import quaternion_from_euler
 import csv #csvファイルを開くと宣言
 
@@ -79,6 +80,10 @@ def main():
 
 #文字を書く(コロナ)
     for FL in fl:#ファイルの数ループ
+<<<<<<< HEAD
+=======
+	 #csvファイルを開くと宣言
+>>>>>>> ecbac35f9b601d9b43d65fd0cdd10fc0574f2ecf
 	with open(FL) as f: #ファイルを開く
 	    for row in csv.reader(f, quoting=csv.QUOTE_NONNUMERIC):#ファイルを数値型に変更しrowに代入
 		move_arm(row[0]*1.2-0.08,row[1]*1.2,row[2], 0.05) #move_arm(X,Y,Z, アームのスピード)
