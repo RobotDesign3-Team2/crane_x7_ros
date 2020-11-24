@@ -38,14 +38,21 @@ int main (){
 	
 	dl_initialize(1.0);
 	dl_clear(DL_C("white"));
+
 	printf("実行２\n");
-	
+
+	dl_line(250-120,480-435,250+120, 480-435, dl_color_from_name("black"), 1);
+	dl_line(250+120,480-435,250+120, 480-100, dl_color_from_name("black"), 1);
+	dl_line(250+120,480-100,250-120, 480-100, dl_color_from_name("black"), 1);
+	dl_line(250-120,480-100,250-120, 480-435, dl_color_from_name("black"), 1);
+	dl_line(249,479,251,481, dl_color_from_name("black"), 3); 
+
 	while(1){
 		if(h < n){
 			printf("%d\n", h);
 			if(Pos[h][2]  == 100){
 				if(Pos[h+1][2] == 100){
-					 dl_line(250-(int)Pos[h][1]*1.2,480-(int)Pos[h][0]*1.2,250-(int)Pos[h+1][1]*1.2, 480-Pos[h+1][0]*1.2, dl_color_from_name("black"), 6);
+					 //dl_line(250-(int)Pos[h][1]*1.2,480-(int)Pos[h][0]*1.2,250-(int)Pos[h+1][1]*1.2, 480-Pos[h+1][0]*1.2, dl_color_from_name("black"), 6);
 					dl_line(250-(int)Pos[h][1],400-(int)Pos[h][0],250-(int)Pos[h+1][1], 400-Pos[h+1][0], dl_color_from_name("black"), 6);
 					printf("x %lf y %lf \n x %lf y %lf \n", Pos[h][0],Pos[h][1],Pos[h+1][0],Pos[h+1][1]);
 				}	
