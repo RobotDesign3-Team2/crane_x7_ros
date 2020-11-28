@@ -1,4 +1,3 @@
-[English](README.en.md) | [日本語](README.md)
 
 # crane_x7_syuji
 
@@ -68,6 +67,11 @@ roslaunch crane_x7_gazebo crane_x7_with_table.launch
 
 ```sh
 rosrun crane_x7_syuji Mcav4.py
+```
+
+コロナのみを書く場合は次のコマンドでプログラムを実行します。
+```sh
+rosrun crane_x7_syuji Mcav5.py
 ```
 
 
