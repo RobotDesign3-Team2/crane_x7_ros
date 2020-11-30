@@ -9,7 +9,7 @@ from tf.transformations import quaternion_from_euler
 
 def main():
 #読み込むcsvファイル＊＊＊＊csvファイルの中身を変えるだけで動きが変更出来る＊＊＊＊	
-    fl = ["KO.csv","RO.csv","NA.csv"] #[コ、ロ、ナ]が入っている
+    fl = ["REI.csv","WA-l.csv","WA-r.csv"] #[コ、ロ、ナ]が入っている
     fl1 = ["ROs.csv","SUs.csv"]#[ロ、ス]が入っている
     fl2 = "NURA.csv"#ぬらすモーション
 
